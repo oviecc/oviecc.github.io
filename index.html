@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ovie Ukorigho</title>
+  <title>Ovie</title>
+  <meta name="description" content="Ovie Ukorigho. Over nine years building distributed systems across fintech, telecoms, and network infrastructure. Currently at Moniepoint." />
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -56,6 +57,9 @@
       line-height: 1.15;
       margin-bottom: 8px;
     }
+
+    .last-name { display: none; }
+    .last-name-full { display: none; }
 
     .hero-title {
       font-size: 13px;
@@ -196,7 +200,45 @@
       gap: 8px;
     }
 
-    .current-label .dot { width: 6px; height: 6px; }
+    .current-label .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+      position: relative;
+    }
+
+    .current-label .dot::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      border: 1px solid #22c55e;
+      animation: pulse-ring 2s ease-out infinite;
+    }
+
+    @keyframes pulse-ring {
+      0%   { transform: scale(0.6); opacity: 0.8; }
+      70%  { transform: scale(1.8); opacity: 0; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+
+    .site-footer {
+      padding: 20px 0 32px;
+      text-align: left;
+    }
+
+    .site-footer a {
+      font-size: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
+
+    .site-footer a:hover {
+      color: #111111;
+    }
 
     .current-company {
       font-size: 15px;
@@ -302,7 +344,6 @@
       font-size: 14px;
       color: var(--text);
       line-height: 1.8;
-      max-width: 560px;
     }
 
     section.contact-section { border-bottom: none; }
@@ -440,12 +481,17 @@
       .print-only { display: block !important; }
       .screen-only { display: none !important; }
       .print-contact { display: flex !important; }
-      .edu-section { display: block !important; margin-top: 10px; }
+      .edu-section { display: block !important; margin-top: 30px; }
+
+      .last-name { display: inline !important; }
+      .last-name-short { display: none; }
+      .last-name-full { display: inline; }
 
       .beyond-section,
       .contact-section,
       .cv-section,
       .now-section,
+      .site-footer,
       .hero-title { display: none !important; }
 
       .hero, section { animation: none !important; opacity: 1 !important; transform: none !important; }
@@ -557,7 +603,9 @@
   <div class="shell">
 
     <div class="hero">
-      <h1 class="hero-name">Ovie Ukorigho</h1>
+      <h1 class="hero-name">
+        Ovie <span class="last-name-short"></span><span class="last-name-full">Ukorigho</span>
+      </h1>
       <p class="hero-print-title print-only">Senior Software Engineer</p>
       <p class="hero-title">Since 2015</p>
       <div class="print-contact">
@@ -570,7 +618,7 @@
         I build the infrastructure that everything else runs on. Nine years across fintech, telecoms, and network infrastructure. Systems that have to work at scale, under pressure, without excuses. Now I'm bringing agentic systems and LLM-powered workflows into how software gets built.
       </p>
       <p class="hero-bio print-only">
-        Senior Software Engineer with over nine years of experience building the infrastructure that everything else runs on. Experienced in designing, scaling, and operating resilient distributed systems across fintech, telecommunications, network infrastructure, and financial services, with a strong track record of owning products and platforms from inception to production at scale. Known for deep technical expertise, a hands-on engineering approach, and building reliable systems under real operational pressure. Currently integrating agentic systems and LLM-powered workflows into how software and services are built.
+        Over nine years building the infrastructure that everything else runs on. Experienced in designing, scaling, and operating resilient distributed systems across fintech, telecommunications, network infrastructure, and financial services, with a strong track record of owning products and platforms from inception to production at scale. Known for deep technical expertise, a hands-on engineering approach, and building reliable systems under real operational pressure. Currently integrating agentic systems and LLM-powered workflows into how software and services are built.
       </p>
     </div>
 
@@ -590,7 +638,7 @@
     </section>
 
     <section>
-      <div class="section-label work-section-label">Previous</div>
+      <div class="section-label work-section-label">Before</div>
       <div class="timeline">
 
       <div class="work-entry print-only">
@@ -666,7 +714,7 @@
       <div class="cv-block">
         <div class="cv-text">
           <p>Want the full picture?</p>
-          <p>Print or save as PDF — always up to date.</p>
+          <p>The complete CV — always up to date.</p>
         </div>
         <button class="cv-btn" onclick="window.print()">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -677,7 +725,6 @@
       </div>
     </div>
 
-
     <section class="beyond-section">
       <div class="section-label">Beyond the terminal</div>
 
@@ -685,9 +732,7 @@
         <div class="beyond-item-label">Music</div>
         <div class="beyond-item-headline">Not just vibes. I care about how it's built.</div>
         <p class="beyond-item-body">
-          I listen to music the way I read code. Trying to figure out what decision was made and why.
-          The arrangement, the layers, what comes in and what drops out. Learning the guitar
-          and slowly working toward producing music. No timeline, just enjoying the process.
+          I listen to music the way I read code. What decision was made. Why. The arrangement, the layers. What comes in and what drops out. I'm learning the guitar and slowly working toward producing music.
         </p>
       </div>
 
@@ -696,6 +741,14 @@
         <div class="beyond-item-headline">Amateur. But I take the racket seriously.</div>
         <p class="beyond-item-body">
           Fast game, honest feedback loop. You either read the spin or you don't. Zero chill at the table.
+        </p>
+      </div>
+
+      <div class="beyond-item">
+        <div class="beyond-item-label">Chess</div>
+        <div class="beyond-item-headline">Fast or slow. Same instincts.</div>
+        <p class="beyond-item-body">
+          I like the constraint of it. Finite pieces, infinite lines. Blitz or long game, the board doesn't care. It's all pattern recognition. See it. Commit. Move.
         </p>
       </div>
 
@@ -725,10 +778,8 @@
           <span class="contact-handle">@oviecc</span>
           <span class="contact-arrow">↗</span>
         </a>
-        <!-- add more rows here as needed -->
       </div>
     </section>
-
 
     <div class="print-only" style="padding: 20px 0;">
       <div class="section-label">Competencies</div>
@@ -754,6 +805,10 @@
         <div class="comp-item">CI/CD</div>
         <div class="comp-item">Monitoring &amp; Observability</div>
       </div>
+    </div>
+
+    <div class="site-footer">
+      <a href="https://ovie.cc">ovie.cc</a>
     </div>
 
   </div>
